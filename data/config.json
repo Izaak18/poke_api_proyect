@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "quiz": {
+    "poolLimit": 151,
+    "basePoints": 10,
+    "streakBonus": 2,
+    "timerSeconds": 15,
+    "timerBonusThresholds": [
+      { "minSeconds": 11, "multiplier": 1.5 },
+      { "minSeconds": 6, "multiplier": 1.2 },
+      { "minSeconds": 0, "multiplier": 1.0 }
+    ],
+    "studiedOpponentChance": 0.3,
+    "optionsCount": 5,
+    "maxAttempts": 20
+  },
+  "library": {
+    "pageSize": 60,
+    "infiniteScrollSize": 40,
+    "totalPokemon": 1025
+  },
+  "flashcards": {
+    "pointsPerCorrect": 10,
+    "maxPokemonId": 1025
+  },
+  "cache": {
+    "version": "v1",
+    "prefix": "pq_"
+  }
+}

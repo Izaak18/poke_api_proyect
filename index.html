@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokéQuiz — Aprende y Juega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">⚡ PokéQuiz</div>
+    <nav class="main-nav">
+      <button class="nav-btn active" data-view="home">Inicio</button>
+      <button class="nav-btn" data-view="quiz">🎮 Jugar</button>
+      <button class="nav-btn" data-view="library">📚 Biblioteca</button>
+      <button class="nav-btn" data-view="flashcards">🃏 Flashcards</button>
+      <button class="nav-btn" data-view="comparator">⚖️ Comparar</button>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">☀️</button>
+  </header>
+
+  <main>
+    <section id="home" class="view active">
+      <div class="hero">
+        <h1>¡Aprende Pokémon jugando!</h1>
+        <p>Estudia en la biblioteca y demuestra lo que sabes</p>
+        <div class="hero-stats">
+          <div class="stat-box"><div class="stat-value" id="home-studied">0</div><div class="stat-label">Estudiados</div></div>
+          <div class="stat-box"><div class="stat-value" id="home-score">0</div><div class="stat-label">Puntos</div></div>
+          <div class="stat-box"><div class="stat-value" id="home-streak">0</div><div class="stat-label">Racha</div></div>
+        </div>
+        <button class="btn-primary" id="start-quiz-btn">¡Empezar Quiz!</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="view">
+      <div class="quiz-header">
+        <div class="quiz-info">
+          <span>Puntos: <b id="quiz-score">0</b></span>
+          <span>Racha: <b id="quiz-streak">0</b></span>
+          <span class="quiz-timer" id="quiz-timer">⏱️ <b id="quiz-timer-value">15</b>s</span>
+        </div>
+        <button class="btn-secondary" id="new-round-btn">Nueva ronda</button>
+      </div>
+      <div class="quiz-loading" id="quiz-loading">
+        <div class="spinner"></div>
+        <p id="quiz-loading-text">Cargando datos de Pokémon...</p>
+      </div>
+      <div class="quiz-content" id="quiz-content" style="display:none">
+        <div class="opponent-section">
+          <div class="opponent-label">Tu oponente es:</div>
+          <div class="opponent-card" id="opponent-card"></div>
+        </div>
+        <h2 class="question">¿Quién puede derrotarlo?</h2>
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback"></div>
+      </div>
+    </section>
+
+    <section id="library" class="view">
+      <div class="library-header">
+        <h2>Biblioteca Pokémon</h2>
+        <div class="library-controls">
+          <input type="text" id="search-input" placeholder="🔍 Buscar por nombre...">
+          <div class="type-filters" id="type-filters"></div>
+        </div>
+      </div>
+      <div class="library-grid" id="library-grid"></div>
+      <div class="library-sentinel" id="library-sentinel"></div>
+    </section>
+
+    <section id="flashcards" class="view">
+      <div class="quiz-header">
+        <div class="quiz-info">
+          <span>Puntos: <b id="fc-score">0</b></span>
+          <span>Racha: <b id="fc-streak">0</b></span>
+        </div>
+      </div>
+      <div id="fc-container"></div>
+    </section>
+
+    <section id="comparator" class="view">
+      <div class="comparator-header">
+        <h2>Comparador de Pokémon</h2>
+        <div class="comparator-controls">
+          <select id="compare-a"><option value="">Selecciona Pokémon A</option></select>
+          <span class="vs-label">VS</span>
+          <select id="compare-b"><option value="">Selecciona Pokémon B</option></select>
+        </div>
+      </div>
+      <div id="compare-result"></div>
+    </section>
+  </main>
+
+  <aside class="author-credit" aria-label="Autores del proyecto">
+    <span class="author-credit-label">Creadores:</span>
+    <span>Isaac Martinez</span>
+    <span>Engels Suarez</span>
+  </aside>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
